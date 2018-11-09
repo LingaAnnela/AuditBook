@@ -1,0 +1,64 @@
+<section class="container-box" fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex.lt-sm="100%" fxFlex="400px">
+      <mat-card-title fxLayoutAlign="center">
+        Edit Client
+      </mat-card-title>
+      <mat-card-content>
+        <form
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="5px"
+          [formGroup]="editForm"
+          (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="First Name"
+              [value]="client.firstName"
+              formControlName="firstName"
+            >
+            <mat-error>Please enter your First Name!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="Last Name"
+              [value]="client.lastName"
+              formControlName="lastName"
+            >
+            <mat-error>Please enter your Last Name!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              [value]="client.email"
+              formControlName="email"
+            >
+            <mat-hint>Please enter a valid email address!</mat-hint>
+            <mat-error>Invalid email..!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="Phone No"
+              [value]="client.phoneNo"
+              formControlName="phoneNo"
+            >
+            <mat-error>Missing Phone Number</mat-error>
+          </mat-form-field>
+
+          <!--<mat-card-actions>-->
+          <button type="submit" mat-raised-button color="primary" [disabled]="editForm.invalid">Save</button>
+          <!--</mat-card-actions>-->
+
+        </form>
+      </mat-card-content>
+
+    </mat-card>
+
+</section>

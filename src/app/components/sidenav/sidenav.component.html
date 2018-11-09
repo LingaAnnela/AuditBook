@@ -1,0 +1,56 @@
+<mat-nav-list class="sidenav-list">
+
+  <a mat-list-item href="" routerLink="/" (click)="onClose()">
+    <mat-icon>home</mat-icon>
+    <span class="nav-caption">Home</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="!isAuth" routerLink="/auth/login" (click)="onClose()">
+    <mat-icon>input</mat-icon>
+    <span class="nav-caption">Login</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/clients" (click)="onClose()">
+    <mat-icon>group_add</mat-icon>
+    <span class="nav-caption">Clients</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/audit/transaction" (click)="onClose()">
+    <mat-icon>card_travel</mat-icon>
+    <span class="nav-caption">Transactions</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/chit-fund" (click)="onClose()">
+    <mat-icon>library_books</mat-icon>
+    <span class="nav-caption">Chit Fund</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/calculator" (click)="onClose()">
+    <mat-icon>date_range</mat-icon>
+    <span class="nav-caption">Calculator</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/reminder" (click)="onClose()">
+    <mat-icon>date_range</mat-icon>
+    <span class="nav-caption">Reminder</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/history" (click)="onClose()">
+    <mat-icon>history</mat-icon>
+    <span class="nav-caption">History</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/about" (click)="onClose()">
+    <mat-icon>format_quotes</mat-icon>
+    <span class="nav-caption">Quotes</span>
+  </a>
+
+  <a mat-list-item href="" *ngIf="isAuth" routerLink="/auth/logout" (click)="onLogout()">
+    <mat-icon>https</mat-icon>
+    <span class="nav-caption">Logout</span>
+  </a>
+  <a mat-list-item href="" *ngIf="!isAuth" routerLink="/auth/signup" (click)="onClose()">
+    <mat-icon>person_add</mat-icon>
+    <span class="nav-caption">Signup</span>
+  </a>
+</mat-nav-list>

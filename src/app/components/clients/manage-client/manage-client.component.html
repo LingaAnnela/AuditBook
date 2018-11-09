@@ -1,0 +1,67 @@
+<section class="container-box" fxLayout fxLayoutAlign="center">
+  <div class="balance-1" fxHide.lt-sm>
+    <!--<span fxLayoutAlign="center">balance</span>-->
+  </div>
+  <div class="balance-2" fxLayoutAlign="center">
+    <mat-card fxFlex.lt-sm="100%" fxFlex="400px">
+      <mat-card-title fxLayoutAlign="center">
+        Manage Client
+      </mat-card-title>
+      <mat-card-content>
+        <form
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          fxLayoutGap="5px"
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit()">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="First Name"
+              formControlName="firstName"
+            >
+            <mat-error>Please enter your First Name!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="Last Name"
+              formControlName="lastName"
+            >
+            <mat-error>Please enter your Last Name!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              formControlName="email"
+            >
+            <mat-hint>Please enter a valid email address!</mat-hint>
+            <mat-error>Invalid email..!</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              placeholder="Phone No"
+              formControlName="phoneNo"
+            >
+            <mat-error>Missing Phone Number</mat-error>
+          </mat-form-field>
+
+          <!--<mat-card-actions>-->
+          <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+          <!--</mat-card-actions>-->
+
+        </form>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+  <div class="balance-3" fxHide.lt-sm>
+    <!--<span fxLayoutAlign="center">balance</span>-->
+  </div>
+</section>

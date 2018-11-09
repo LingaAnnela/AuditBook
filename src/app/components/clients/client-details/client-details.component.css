@@ -1,0 +1,21 @@
+
+.client-details {
+  padding: 10px;
+}
+
+.transactions{
+  padding-top: 5px;
+}
+
+mat-card, div {
+  width: 100%;
+}
+
+.positive{
+  color: green;
+}
+
+.negative{
+  color: red;
+}
+

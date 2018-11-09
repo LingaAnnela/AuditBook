@@ -1,0 +1,12 @@
+.container-box {
+  padding: 10px;
+}
+
+mat-form-field {
+  width: 300px;
+  height: 100%;
+}
+
+.login {
+  padding: 10px;
+}

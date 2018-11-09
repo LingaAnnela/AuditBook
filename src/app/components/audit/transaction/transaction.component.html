@@ -1,0 +1,98 @@
+<section class="container-box" fxLayout fxLayoutAlign="center">
+
+  <mat-card fxFlex.lt-sm="100%" fxFlex="400px">
+    <mat-card-title fxLayoutAlign="center">
+      New Transaction
+    </mat-card-title>
+    <mat-card-content>
+      <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        fxLayoutGap="5px"
+        [formGroup]="transactionForm"
+        (ngSubmit)="onSubmit()">
+
+        <mat-form-field>
+          <mat-select placeholder="Select the Client" formControlName="id">
+            <mat-option *ngFor="let client of clients" [value]="client.id">
+              <mat-icon>person</mat-icon> {{client.firstName}} {{client.lastName}}
+            </mat-option>
+            <mat-option routerLink="/clients/add-client">
+              Not here? Wanna add new
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="Amount"
+            formControlName="amount"
+          >
+          <mat-error>Please enter your Last Name!</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" (focus)="picker.open()" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            type="text"
+            matInput
+            placeholder="interest"
+            formControlName="interest"
+          >
+          <mat-error>Missing Phone Number</mat-error>
+        </mat-form-field>
+
+        <!--<mat-form-field>-->
+          <mat-radio-group formControlName="notification"> Notificatios :
+            <mat-radio-button value="yes">Yes</mat-radio-button>
+            <mat-radio-button value="no" default>No</mat-radio-button>
+          </mat-radio-group>
+          <!--<mat-error>Missing Phone Number</mat-error>-->
+        <!--</mat-form-field>-->
+
+        <!--<mat-form-field>-->
+          <!--<input-->
+            <!--type="text"-->
+            <!--matInput-->
+            <!--placeholder="interval"-->
+            <!--formControlName="interval"-->
+          <!--&gt;-->
+          <!--<mat-error>Missing Phone Number</mat-error>-->
+        <!--</mat-form-field>-->
+
+        <!--<mat-form-field>-->
+          <!--<input-->
+            <!--type="text"-->
+            <!--matInput-->
+            <!--placeholder="duration"-->
+            <!--formControlName="duration"-->
+          <!--&gt;-->
+          <!--<mat-error>Missing Phone Number</mat-error>-->
+        <!--</mat-form-field>-->
+
+        <!--<mat-form-field>-->
+          <!--<input-->
+            <!--type="text"-->
+            <!--matInput-->
+            <!--placeholder="attachments"-->
+            <!--formControlName="attachments"-->
+          <!--&gt;-->
+          <!--<mat-error>Missing Phone Number</mat-error>-->
+        <!--</mat-form-field>-->
+
+        <!--<mat-card-actions>-->
+        <button type="submit" mat-raised-button color="primary" [disabled]="transactionForm.invalid">Submit</button>
+        <!--</mat-card-actions>-->
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+
+</section>

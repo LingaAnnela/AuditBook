@@ -1,0 +1,41 @@
+<div style="padding: 10px; padding-left: 15px;" >
+<button mat-raised-button color="accent" routerLink="/clients/add-client">Add Client</button>
+</div>
+<!--<button mat-raised-button routerLink="/clients/edit-client">-->
+  <!--Edit Clients-->
+<!--</button>-->
+
+<section class="clients">
+  <div *ngFor="let client of clients">
+    <mat-card class="client-list" routerLink="client/{{client.id}}" style="cursor: pointer; padding: 0px; " >
+      <h6 fxLayoutAlign="start" style="padding: 0px">
+        {{ client.firstName }} {{ client.lastName }}
+      </h6>
+      <div fxLayoutAlign="end">
+        <!--<button mat-button routerLink="client/{{client.id}}"> Details</button>-->
+        <p style="padding-right: 5px">
+          <button mat-stroked-button
+                  style="color: green"
+                  routerLink="edit-client/{{client.id}}">
+            Edit
+          </button>
+        </p>
+
+        <p style="padding-right: 5px">
+          <button mat-stroked-button color="warn"
+                  (click) = "onDeleteClick(client.id);$event.preventDefault();$event.stopPropagation()">
+            Delete
+          </button>
+        </p>
+
+      </div>
+
+    </mat-card>
+
+  </div>
+</section>
+
+
+
+
+

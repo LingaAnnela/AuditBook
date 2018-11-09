@@ -1,0 +1,34 @@
+.container-box {
+  /*border:1px #ccc solid;*/
+  /*padding:10px;*/
+}
+
+.balance-1 {
+  flex: 1;
+
+}
+
+.clients {
+  padding: 10px;
+}
+
+.balance-2 {
+  flex: 3;
+  border-right:1px #ccc solid;
+  border-left:1px #ccc solid;
+  /*padding:10px;*/
+  height: 880px;
+}
+
+.balance-3 {
+  flex: 1;
+}
+
+.client-list{
+  padding: 15px;
+  margin: 15px;
+}
+
+mat-card{
+  width: 100%;
+}

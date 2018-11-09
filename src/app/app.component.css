@@ -1,0 +1,46 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.nav-caption {
+  display: inline-block;
+  padding-left: 6px;
+}
+
+/*#container {*/
+  /*display: flex;*/
+  /*!*width: 70%;*!*/
+  /*height: 100%;*/
+  /*justify-content: center;*/
+/*}*/
+
+/*.child {*/
+  /*height: 200px;*/
+  /*!*width: 200px;*!*/
+/*}*/
+
+/*#child1{*/
+  /*!*background-color: orange;*!*/
+  /*border-right: 1px solid black;*/
+  /*!*border-color: black;*!*/
+  /*flex: 1;*/
+/*}*/
+/*#child2{*/
+  /*!*background-color: green;*!*/
+  /*flex: 3;*/
+  /*border-right: 1px solid black;*/
+/*}*/
+/*#child3{*/
+  /*!*background-color: yellow;*!*/
+  /*flex: 1;*/
+/*}*/
+

@@ -1,0 +1,65 @@
+<section class="signup" fxLayout="" fxLayoutAlign="center">
+  <mat-card fxFlex="400px">
+    <mat-card-title fxLayoutAlign="center">
+      SIGNUP
+    </mat-card-title>
+    <mat-card-content>
+      <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-form-field>
+          <input
+            type="email"
+            matInput=""
+            placeholder="Please enter your Email"
+            ngModel
+            name="email"
+            email
+            required
+            #emailInput="ngModel"
+          >
+          <mat-error *ngIf="emailInput.hasError('required')">Please enter an EMail Address</mat-error>
+          <mat-error *ngIf="!emailInput.hasError('required')">Invalid EMail</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Should be at least 6 characters">
+          <input
+            type="password"
+            matInput=""
+            placeholder="Please enter your Password"
+            ngModel
+            name="password"
+            required
+            minlength="6"
+            #pwInput = "ngModel"
+          >
+          <mat-hint align="end"> {{ pwInput.value?.length }}/ 6</mat-hint>
+          <mat-error> Should be at least 6 Characters</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Birth Date"
+            [matDatepicker]="picker"
+            [max]="maxDate"
+            ngModel
+            name="dateofbirth"
+            required
+          >
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox ngModel name="agree" required color="primary"> Agree to the terms and conditions</mat-checkbox>
+        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid"> Submit</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</section>
+
+
+<!--<section id="container">-->
+  <!--<div id="child1" class="child1"></div>-->
+  <!--<div id="child2" class="child1"></div>-->
+  <!--<div id="child3" class="child1"></div>-->
+<!--</section>-->

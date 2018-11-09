@@ -1,0 +1,127 @@
+
+<section class="client-details" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card fxFlex.lt-sm="100%" fxFlex="250px" fxLayoutAlign="center">
+    <!--<mat-card-title >-->
+
+    <mat-tab-group>
+      <mat-tab label="Profile">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <!--<div mat-card-avatar class="example-header-image"></div>-->
+            <mat-card-title>{{ client.firstName }}</mat-card-title>
+            <mat-card-subtitle>{{ client.lastName }}</mat-card-subtitle>
+            <!--<mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>-->
+          </mat-card-header>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+
+      </mat-tab>
+      <mat-tab label="Details">
+        <p style="padding-top: 15px">
+          <b>Principal : </b> {{ transactions.totalPrincipal | currency:"INR" }}
+        </p>
+        <p>
+          <b>Interest : </b>  {{ transactions.totalInterest | currency:"INR" }}
+        </p>
+        <p >
+          <b>Total : </b>  {{ transactions.totalAmount | currency:"INR"}}
+        </p>
+
+      </mat-tab>
+      <mat-tab label="Contact">
+        <p >
+          <b>Email : </b> {{ client.email }}
+        </p>
+        <p >
+          <b>Phone : </b>  {{ client.phoneNo }}
+        </p>
+      </mat-tab>
+    </mat-tab-group>
+
+
+    <!--</mat-card-title>-->
+    <!--<mat-card-content>-->
+    <!--<p fxFlex="50%">-->
+    <!--<b>Email : </b> {{ client.email }}-->
+    <!--</p>-->
+    <!--<p fxFlex="50%">-->
+    <!--<b>Phone : </b>  {{ client.phoneNo }}-->
+    <!--</p>-->
+    <!--</mat-card-content>-->
+
+  </mat-card>
+
+  <div style="padding: 10px">
+    <button mat-raised-button color="accent" routerLink="/audit/transaction">Add transaction</button>
+  </div>
+  <!--<section >-->
+
+  <div class="transactions" *ngFor="let transaction of transactions">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header style="padding-top: 10px">
+          <mat-panel-title >
+            <div fxFlex="20%" >
+              <div >
+                <span class="mat-small mat-caption">Last Updated</span>
+                <br>
+                <span [ngStyle]="{ color: 'blue'}"> {{ transaction.date.toDate() | date }}</span>
+              </div>
+
+            </div>
+            <p fxFlex="30%">
+              Details
+            </p>
+            <p fxFlex="30%"
+               [ngClass]="{positive: transaction.amount >= 0, negative: transaction.amount < 0 }" >
+              {{ transaction.amount | currency:"INR" }}
+            </p>
+            <p fxFlex="20%"
+               [ngClass]="{positive: transaction.interestEarned >= 0, negative: transaction.interestEarned < 0 }">
+              {{ transaction.interestEarned | currency:"INR"}}
+            </p>
+          </mat-panel-title>
+          <!--<mat-panel-description>-->
+          <!--Type your name and age-->
+          <!--</mat-panel-description>-->
+        </mat-expansion-panel-header>
+
+        <!--parent to child data binding [tranDetails]="transaction"-->
+        <!--child to parent data binding (transUpdated)="onTransUpdated($event)"-->
+        <app-transaction-details [tranDetails]="transaction" (transUpdated)="onTransUpdated($event)">
+          <!--Usually what ever entered in between any component will not be rendered directly-->
+          <!--But if we use the ng-content in the place where ever it has to be displayed in the component-->
+          <!--it will work has expected.-->
+          <p>
+            {{ transaction.interestEarned }} {{ transaction.amount }} {{ transaction.interest }}
+          </p>
+        </app-transaction-details>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <!--<mat-card>-->
+    <!--<p fxFlex="20%" [ngStyle]="{ backgroundColor: 'yellow'}"> {{ transaction.date.toDate() | date }}</p>-->
+    <!--<p fxFlex="30%">-->
+    <!--Details-->
+    <!--</p>-->
+    <!--<p fxFlex="30%"-->
+    <!--[ngClass]="{positive: transaction.amount >= 0, negative: transaction.amount < 0 }" >-->
+    <!--{{ transaction.amount | currency:"INR" }}-->
+    <!--</p>-->
+    <!--<p fxFlex="20%"-->
+    <!--[ngClass]="{positive: transaction.interestEarned >= 0, negative: transaction.interestEarned < 0 }">-->
+    <!--{{ transaction.interestEarned | currency:"INR"}}-->
+    <!--</p>-->
+
+    <!--</mat-card>-->
+    <!--<ng-template #noTransaction>-->
+    <!--<p>No transactions found!</p>-->
+    <!--</ng-template>-->
+  </div>
+  <!--</section>-->
+</section>

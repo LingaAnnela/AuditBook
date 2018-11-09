@@ -1,0 +1,21 @@
+.container-box {
+  /*border:1px #ccc solid;*/
+  /*padding:10px;*/
+}
+
+.balance-1 {
+  flex: 1;
+
+}
+
+.balance-2 {
+  flex: 3;
+  border-right:1px #ccc solid;
+  border-left:1px #ccc solid;
+  /*padding:10px;*/
+  height: 880px;
+}
+
+.balance-3 {
+  flex: 1;
+}
