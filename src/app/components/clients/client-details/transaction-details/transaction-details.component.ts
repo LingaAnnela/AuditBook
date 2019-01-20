@@ -159,6 +159,7 @@ export class TransactionDetailsComponent implements OnInit, OnDestroy {
   }
 
   cancelPayment(){
+    this.panelOpenState = false;
     console.log('Payment has been cancelled.');
 
   }
